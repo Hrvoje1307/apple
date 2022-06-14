@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Splendid Food</title>
+    <title>Sajmisce</title>
     <link rel="stylesheet" href="styles/style.min.css">
     <link rel="icon" href="../public/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../public/favicon.ico" type="image/ico">
@@ -16,9 +16,6 @@
             <i class="icofont-spoon-and-fork"></i>
             <span>Home</span>
           </a>
-          <a href="views/products.html" class="top-bar-link">
-            <span>Products</span>
-          </a>
         </nav>
         <a @click="toggleSidebar" class="top-bar-cart-link">
           <i class="icofont-cart-alt icofont-1x"></i>
@@ -28,7 +25,7 @@
 
       <div class="splash-container">
         <div class="splash">
-          <h1>Splendid Food</h1>
+          <h1>Sajmišče</h1>
         </div>
       </div>
 
@@ -40,17 +37,18 @@
 
           <div class="card">
             <div class="card-title">
-              Carrots
+              Earpods 3.5 mm socket
             </div>
             <div class="card-body">
-              <i class="icofont-10x icofont-carrot"></i>
+              <!-- <i class="icofont-10x icofont-carrot"></i> -->
+              <img src="../public/earpods.png" height=150>
               <form>
                 <div class="row">
                   <div class="cell">
                     <label>Type:</label>
                   </div>
                   <div class="cell">
-                    <em>Vegetable</em>
+                    <em>Earphones</em>
                   </div>
                 </div>
                 <div class="row">
@@ -58,7 +56,7 @@
                     <label>Price:</label>
                   </div>
                   <div class="cell">
-                    $4.82
+                    $50
                   </div>
                 </div>
                 <div class="row">
@@ -80,17 +78,18 @@
 
           <div class="card">
             <div class="card-title">
-              Pineapples
+              iPhone 7
             </div>
             <div class="card-body">
-              <i class="icofont-10x icofont-pineapple"></i>
+              <!--<i class="icofont-10x icofont-pineapple"></i> -->
+              <img src="../public/iphone 7.png" height=150>
               <form>
                 <div class="row">
                   <div class="cell">
                     <label>Type:</label>
                   </div>
                   <div class="cell">
-                    <em>Fruit</em>
+                    <em>Phone</em>
                   </div>
                 </div>
                 <div class="row">
@@ -98,7 +97,7 @@
                     <label>Price:</label>
                   </div>
                   <div class="cell">
-                    $1.62
+                    $1000
                   </div>
                 </div>
                 <div class="row">
@@ -118,17 +117,18 @@
 
           <div class="card">
             <div class="card-title">
-              Cherries
+              Macbook
             </div>
             <div class="card-body">
-              <i class="icofont-10x icofont-cherry"></i>
+              <!-- <i class="icofont-10x icofont-cherry"></i> -->
+              <img src="../public/macbook.png" height=150>
               <form>
                 <div class="row">
                   <div class="cell">
                     <label>Type:</label>
                   </div>
                   <div class="cell">
-                    <em>Fruit</em>
+                    <em>Laptop</em>
                   </div>
                 </div>
                 <div class="row">
@@ -136,7 +136,7 @@
                     <label>Price:</label>
                   </div>
                   <div class="cell">
-                    $1.04
+                    $1100
                   </div>
                 </div>
                 <div class="row">
@@ -150,7 +150,50 @@
               </form>
             </div>
             <div class="card-footer">
-              <button class="btn btn-light">Add to cart</button>
+              <button @click="addToCart('cherries')" class="btn btn-light">Add to cart</button>
+            </div>
+          </div>
+
+          
+
+          <div class="card">
+            <div class="card-title">
+              Delux voda
+            </div>
+            <div class="card-body">
+              <!-- <i class="icofont-10x icofont-carrot"></i> -->
+              <img src="../public/voda.jpg" height=150>
+              <form>
+                <div class="row">
+                  <div class="cell">
+                    <label>Type:</label>
+                  </div>
+                  <div class="cell">
+                    <em>Delux drink</em>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Price:</label>
+                  </div>
+                  <div class="cell">
+                    $150
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Quantity:</label>
+                  </div>
+                  <div class="cell">
+                    <input type="number" v-model.number="inventory.water">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button @click="addToCart('water')" class="btn btn-light">
+                Add to cart
+              </button>
             </div>
           </div>
 
@@ -179,12 +222,14 @@
             inventory: {
               carrots: 0,
               pineapples: 0,
-              cherries: 0
+              cherries: 0,
+              water: 0
             },
             cart: {
               carrots: 0,
               pineapples: 0,
-              cherries: 0
+              cherries: 0,
+              water: 0
             }
           }
         },
@@ -193,8 +238,12 @@
             this.cart[type] += this.inventory[type]
             console.log(this.cart)
           },
+
           toggleSidebar() {
             this.showSidebar = !this.showSidebar
+          },
+          priceZeroCherries() {
+            this.cherries = 0;
           }
         }
       })
@@ -203,7 +252,7 @@
         props:['toggle','cart'],
         computed: {
           cartTotal() {
-            return ((this.cart.carrots * 4.82) + (this.cart.pineapples * 1.62)).toFixed(2)
+            return ((this.cart.carrots * 50) + (this.cart.pineapples * 1000) + (this.cart.cherries * 1100) + (this.cart.water * 150)).toFixed(2)
           }
         },
         template: `
@@ -223,19 +272,19 @@
                 <tr>
                   <th><span class="sr-only">Product Image</span></th>
                   <th>Product</th>
-                  <th>Price</th>
                   <th>Qty</th>
+                  <th>Price</th>
                   <th>Total</th>
                   <th><span class="sr-only">Actions</span></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><i class="icofont-carrot icofont-3x"></i></td>
-                  <td>Carrot</td>
-                  <td>$4.82</td>
+
+                  <td>Earpods</td>
+                  <td>$50</td>
                   <td class="center"> {{ cart.carrots }} </td>
-                  <td>\${{ cart.carrots * 4.82 }}</td>
+                  <td>\${{ cart.carrots * 50 }}</td>
                   <td class="center">
                     <button class="btn btn-light cart-remove">
                       &times;
@@ -244,17 +293,43 @@
                 </tr>
 
                 <tr>
-                  <td><i class="icofont-pineapple icofont-3x"></i></td>
-                  <td>pineapple</td>
-                  <td>$1.62</td>
+
+                  <td>iPhone</td>
+                  <td>$1000</td>
                   <td class="center"> {{ cart.pineapples }} </td>
-                  <td>\${{ cart.pineapples * 1.62 }}</td>
+                  <td>\${{ cart.pineapples * 1000 }}</td>
                   <td class="center">
                     <button class="btn btn-light cart-remove">
                       &times;
                     </button>
                   </td>
                 </tr>
+
+                <tr>
+
+                  <td>Macbook</td>
+                  <td>$1000</td>
+                  <td class="center"> {{ cart.cherries }} </td>
+                  <td>\${{ cart.cherries * 1100 }}</td>
+                  <td class="center">
+                    <button class="btn btn-light cart-remove">
+                      &times;
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+
+<td>voda</td>
+<td>$150</td>
+<td class="center"> {{ cart.water }} </td>
+<td>\${{ cart.water * 150 }}</td>
+<td class="center">
+  <button class="btn btn-light cart-remove">
+    &times;
+  </button>
+</td>
+</tr>
 
               </tbody>
             </table>
