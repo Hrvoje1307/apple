@@ -1,1 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>iStyle</title>
+    <link rel="stylesheet" href="styles/style.min.css">
+    <link rel="icon" href="../public/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../public/favicon.ico" type="image/ico">
+  </head>
+  <body>
 
+    <div id="app">
+
+      <header class="top-bar spread">
+        <nav class="top-bar-nav">
+          <a href="app.html" class="top-bar-link">
+            <i class="icofont-spoon-and-fork"></i>
+            <span>Home</span>
+          </a>
+          <a href="mac.html" class="top-bar-link">
+            <!-- <i class="icofont-spoon-and-fork"></i> -->
+            <span>Mac</span>
+          </a>
+          <a href="ipad.html" class="top-bar-link">
+            <!-- <i class="icofont-spoon-and-fork"></i> -->
+            <span>iPad</span>
+          </a>
+          <a href="iphone.html" class="top-bar-link">
+            <!-- <i class="icofont-spoon-and-fork"></i> -->
+            <span>iPhone</span>
+          </a>
+          <a href="watch.html" class="top-bar-link">
+            <!-- <i class="icofont-spoon-and-fork"></i> -->
+            <span>watch</span>
+          </a>
+
+        </nav>
+        <a @click="toggleSidebar" class="top-bar-cart-link">
+          <i class="icofont-cart-alt icofont-1x"></i>
+          <span>Cart (0)</span>
+        </a>
+      </header>
+
+      <div class="splash-container">
+        <div class="splash">
+          <h1>iStyle</h1>
+        </div>
+      </div>
+
+      <main class="wrapper">
+
+        <h2>Apple watch</h2>
+
+        <div class="recommended">
+
+          <div class="card">
+            <div class="card-title">
+              Apple watch
+            </div>
+            <div class="card-body">
+              <!-- <i class="icofont-10x icofont-carrot"></i> -->
+              <img src="../public/series7.png" height=150>
+              <form>
+                <div class="row">
+                  <div class="cell">
+                    <label>Model:</label>
+                  </div>
+                  <div class="cell">
+                    <em>Series 7</em>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Price:</label>
+                  </div>
+                  <div class="cell">
+                    $477
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Quantity:</label>
+                  </div>
+                  <div class="cell">
+                    <input type="number" v-model.number="inventory.carrots">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button @click="addToCart('carrots')" class="btn btn-light">
+                Add to cart
+              </button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              Apple watch
+            </div>
+            <div class="card-body">
+              <!--<i class="icofont-10x icofont-pineapple"></i> -->
+              <img src="../public/series6.png"  height=150>
+              <form>
+                <div class="row">
+                  <div class="cell">
+                    <label>Model:</label>
+                  </div>
+                  <div class="cell">
+                    <em>Series 6</em>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Price:</label>
+                  </div>
+                  <div class="cell">
+                    $473
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Quantity:</label>
+                  </div>
+                  <div class="cell">
+                    <input type="number" v-model="inventory.pineapples">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button @click="addToCart('pineapples')" class="btn btn-light">Add to cart</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">
+              Apple watch
+            </div>
+            <div class="card-body">
+              <!-- <i class="icofont-10x icofont-cherry"></i> -->
+              <img src="../public/semodel.png " height=150>
+              <form>
+                <div class="row">
+                  <div class="cell">
+                    <label>Type:</label>
+                  </div>
+                  <div class="cell">
+                    <em>SE model</em>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Price:</label>
+                  </div>
+                  <div class="cell">
+                    $319
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Quantity:</label>
+                  </div>
+                  <div class="cell">
+                    <input type="number" v-model="inventory.cherries">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button @click="addToCart('cherries')" class="btn btn-light">Add to cart</button>
+            </div>
+          </div>
+
+          
+
+          <div class="card">
+            <div class="card-title">
+              Apple watch
+            </div>
+            <div class="card-body">
+              <!-- <i class="icofont-10x icofont-carrot"></i> -->
+              <img src="../public/watch.png"  height=150>
+              <form>
+                <div class="row">
+                  <div class="cell">
+                    <label>Type:</label>
+                  </div>
+                  <div class="cell">
+                    <em>Series 3</em>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Price:</label>
+                  </div>
+                  <div class="cell">
+                    $244
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="cell">
+                    <label>Quantity:</label>
+                  </div>
+                  <div class="cell">
+                    <input type="number" v-model.number="inventory.water">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button @click="addToCart('water')" class="btn btn-light">
+                Add to cart
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+
+      <sidebar 
+        v-if="showSidebar" 
+        :toggle="toggleSidebar" 
+        :cart="cart"
+      />
+
+      <footer>
+      </footer>
+
+    </div>
+      
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      let app = Vue.createApp({
+        data() {
+          return {
+
+            showSidebar: false,
+            inventory: {
+              carrots: 0,
+              pineapples: 0,
+              cherries: 0,
+              water: 0
+            },
+            cart: {
+              carrots: 0,
+              pineapples: 0,
+              cherries: 0,
+              water: 0
+            }
+          }
+        },
+        methods: {
+          addToCart(type) {
+            this.cart[type] += this.inventory[type]
+            console.log(this.cart)
+          },
+
+          toggleSidebar() {
+            this.showSidebar = !this.showSidebar
+          },
+          priceZeroCherries() {
+            this.cherries = 0;
+          }
+        }
+      })
+
+      app.component('sidebar', {
+        props:['toggle','cart'],
+        computed: {
+          cartTotal() {
+            return ((this.cart.carrots * 50) + (this.cart.pineapples * 1000) + (this.cart.cherries * 1100) + (this.cart.water * 150)).toFixed(2)
+          }
+        },
+        template: `
+        <aside class="cart-container">
+        <div class="cart">
+          <h1 class="cart-title spread">
+            <span>
+              Cart
+              <i class="icofont-cart-alt icofont-1x"></i>
+            </span>
+            <button @click="toggle" class="cart-close">&times;</button>
+          </h1>
+
+          <div class="cart-body">
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th><span class="sr-only">Product Image</span></th>
+                  <th>Product</th>
+                  <th>Qty</th>
+                  <th>Price</th>
+                  <th>Total</th>
+                  <th><span class="sr-only">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+
+                  <td>Earpods</td>
+                  <td>$50</td>
+                  <td class="center"> {{ cart.carrots }} </td>
+                  <td>\${{ cart.carrots * 50 }}</td>
+                  <td class="center">
+                    <button class="btn btn-light cart-remove">
+                      &times;
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+
+                  <td>iPhone</td>
+                  <td>$1000</td>
+                  <td class="center"> {{ cart.pineapples }} </td>
+                  <td>\${{ cart.pineapples * 1000 }}</td>
+                  <td class="center">
+                    <button class="btn btn-light cart-remove">
+                      &times;
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+
+                  <td>Macbook</td>
+                  <td>$1000</td>
+                  <td class="center"> {{ cart.cherries }} </td>
+                  <td>\${{ cart.cherries * 1100 }}</td>
+                  <td class="center">
+                    <button class="btn btn-light cart-remove">
+                      &times;
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+
+<td>Smart watch</td>
+<td>$300</td>
+<td class="center"> {{ cart.water }} </td>
+<td>\${{ cart.water * 150 }}</td>
+<td class="center">
+  <button class="btn btn-light cart-remove">
+    &times;
+  </button>
+</td>
+</tr>
+
+              </tbody>
+            </table>
+
+            <p class="center"><em>No items in cart</em></p>
+            <div class="spread">
+              <span><strong>Total:</strong> \${{ cartTotal }}</span>
+              <button class="btn btn-light">Checkout</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+        `
+      })
+      
+
+      app.mount('#app')
+    </script>
+  </body>
+</html>
+
+<!--1:39:40 video-->
